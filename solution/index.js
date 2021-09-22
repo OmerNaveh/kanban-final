@@ -123,6 +123,7 @@ function editTask(e) //edits task value on dbl click
         const input = document.createElement("input");
         input.placeholder = oldValue;
         li.replaceWith(input);
+        input.classList.add("task");
         input.focus(); //right when a user dblClicks the input focuses
         input.onblur= (e)=>{
             if(input.value!=="")
@@ -187,7 +188,7 @@ function changeSect(e)
             {
                 const ul = document.querySelector(".to-do-tasks");
                 const newLi= duplicateLi(mouseEvent)
-                ul.append(newLi);
+                ul.prepend(newLi);
                 SaveData("to-do-tasks", newLi.textContent);
                 const key=getKeyValue(mouseEvent);
                 deleteData(key,newLi.textContent)
@@ -197,7 +198,7 @@ function changeSect(e)
             {
                 const ul = document.querySelector(".in-progress-tasks");
                 const newLi= duplicateLi(mouseEvent)
-                ul.append(newLi);
+                ul.prepend(newLi);
                 SaveData("in-progress-tasks", newLi.textContent);
                 const key=getKeyValue(mouseEvent);
                 deleteData(key,newLi.textContent)
@@ -207,7 +208,7 @@ function changeSect(e)
             {
                 const ul = document.querySelector(".done-tasks");
                 const newLi= duplicateLi(mouseEvent)
-                ul.append(newLi);
+                ul.prepend(newLi);
                 SaveData("done-tasks", newLi.textContent);
                 const key=getKeyValue(mouseEvent);
                 deleteData(key,newLi.textContent)
