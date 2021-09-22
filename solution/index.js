@@ -175,7 +175,7 @@ function duplicateLi({target}) //take existing li items content and creates new 
     newTask.classList.add("task");
     return newTask;
 }
-function changeSect(e)
+function changeSect(e) //changes section based on alt + num entered
 {
     if(e.target.classList.contains("task"))
     {
@@ -243,50 +243,56 @@ function searchFilter() //search maipulation Dom
 let statusCode = undefined; //will be used in ApiFunctions to display a cool cat img displaying error status 
 async function SaveToApi(tasks)
 {
-        const loader = document.getElementById("loading");
-        loader.style.display = "block"
-        const saving = await fetch("https://json-bins.herokuapp.com/bin/614b0b534021ac0e6c080cd7", {
-            method:"PUT",
-            headers: {
-            Accept: "application/json", 
-            "Content-Type": "application/json",},
-            body:JSON.stringify({tasks})
-        })
-        if(!saving.ok)
-        {
-            statusCode = saving.status;
-            const div = document.getElementById("apiUsage");
-            const catImg = document.createElement("img");
-            catImg.classList.add("Cats");
-            catImg.src= `https://http.cat/${statusCode}`;
-            div.append(catImg);
-        }
-        loader.style.display = "none";
+    const div = document.getElementById("apiUsage");
+    const loader = document.createElement("img");
+    loader.classList.add("loader");
+    loader.src="https://c.tenor.com/sOcqo6-1sXQAAAAM/loading-bar.gif";
+    div.append(loader);    
+    loader.style.display = "block"
+    const saving = await fetch("https://json-bins.herokuapp.com/bin/614b0b534021ac0e6c080cd7", {
+        method:"PUT",
+        headers: {
+        Accept: "application/json", 
+        "Content-Type": "application/json",},
+        body:JSON.stringify({tasks})
+    })
+    if(!saving.ok)
+    {
+        statusCode = saving.status;
+        const catImg = document.createElement("img");
+        catImg.classList.add("Cats");
+        catImg.src= `https://http.cat/${statusCode}`;
+        div.append(catImg);
+    }
+    loader.remove();
 }
 
 async function LoadFromApi(tasks)
 {
-        const loader = document.getElementById("loading");
-        loader.style.display = "block"
-        const response = await fetch("https://json-bins.herokuapp.com/bin/614b0b534021ac0e6c080cd7", { headers: {
-        Accept: "application/json", 
-        "Content-Type": "application/json",},});
-        if(!response.ok)
-        {
-            statusCode = response.status;
-            const div = document.getElementById("apiUsage");
-            const catImg = document.createElement("img");
-            catImg.classList.add("Cats");
-            catImg.src= `https://http.cat/${statusCode}`;
-            div.append(catImg);
-        }
-        const data = await response.json();
-        loader.style.display = "none";
-        const loadedTasks = data.tasks;
-        getLocal = loadedTasks;
-        saveToLocal(loadedTasks);
-        clearData();
-        printData();
+    const div = document.getElementById("apiUsage");
+    const loader = document.createElement("img");
+    loader.classList.add("loader");
+    loader.src="https://c.tenor.com/sOcqo6-1sXQAAAAM/loading-bar.gif";
+    div.append(loader);
+    loader.style.display = "block"
+    const response = await fetch("https://json-bins.herokuapp.com/bin/614b0b534021ac0e6c080cd7", { headers: {
+    Accept: "application/json", 
+    "Content-Type": "application/json",},});
+    if(!response.ok)
+    {
+        statusCode = response.status;
+        const catImg = document.createElement("img");
+        catImg.classList.add("Cats");
+        catImg.src= `https://http.cat/${statusCode}`;
+        div.append(catImg);
+    }
+    const data = await response.json();
+    loader.remove();
+    const loadedTasks = data.tasks;
+    getLocal = loadedTasks;
+    saveToLocal(loadedTasks);
+    clearData();
+    printData();
 }
 
 function clearData() //clear all data before printing new one;
