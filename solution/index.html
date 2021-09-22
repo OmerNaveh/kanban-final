@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./index.js" defer></script>
+    <!-- external sorting JS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js"></script> 
     <link rel="stylesheet" href="./styles.css" />
     <title>Tasks manager</title>
 </head>
@@ -17,26 +19,44 @@
     <input id="search" type="search" placeholder="Search Task"> 
     <div class="overlay">
 
-        <section>
+        <section class="wrapper">
             <h2>1. To Do</h2>
             <ul class="to-do-tasks"></ul>
             <input id="add-to-do-task" class="task-input" placeholder="Add Task">
             <button id="submit-add-to-do" class="task-input" >Add</button>
         </section>
         
-        <section>
+        <section class="wrapper">
             <h2>2. In Progress</h2>
             <ul class="in-progress-tasks"></ul>
             <input id="add-in-progress-task" class="task-input" placeholder="Add Task">
             <button id="submit-add-in-progress" class="task-input">Add</button>    
         </section>
         
-        <section>
+        <section class="wrapper">
             <h2>3. Done</h2>
             <ul class="done-tasks"></ul>
             <input id="add-done-task" class="task-input" placeholder="Add Task">
             <button id="submit-add-done" class="task-input">Add</button>    
         </section>
+        <script>
+            //using the external JS sorting library only works local - does not save!
+            const dragtodo = document.querySelector(".to-do-tasks");
+            new Sortable(dragtodo, {
+                group:"shared",
+                animation: 350
+            });
+            const draginProgress = document.querySelector(".in-progress-tasks");
+            new Sortable(draginProgress, {
+                group:"shared",
+                animation: 350
+            });
+            const dragdone = document.querySelector(".done-tasks");
+            new Sortable(dragdone, {
+                group:"shared",
+                animation: 350
+            });
+          </script>
     </div>
     <div id="apiUsage">
         <h3>Api Usage</h3>

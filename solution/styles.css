@@ -63,6 +63,7 @@ h1{
 }
 p{
     font-size: 14px;
+    font-weight: bold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 #apiUsage{
