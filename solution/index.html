@@ -8,6 +8,41 @@
     <link rel="stylesheet" href="./styles.css" />
     <title>Tasks manager</title>
 </head>
-<body>
+<body id="body">
+    <h1 id="page-title">My To Do List</h1>
+    <p>You can fill in all of your ToDo list using this site.</p>
+    <p>-Cool features include- </p>
+    <p>Double Clicking a task will allow you to change it's content.</p>
+    <p>Hovering over a Task and pressing down Ctrl + (number) - will move your Task to the chosen status.</p>
+    <input id="search" type="search" placeholder="Search Task"> 
+    <div class="overlay">
+
+        <section>
+            <h2>1. To Do</h2>
+            <ul class="to-do-tasks"></ul>
+            <input id="add-to-do-task" class="task-input" placeholder="Add Task">
+            <button id="submit-add-to-do" class="task-input" >Add</button>
+        </section>
+        
+        <section>
+            <h2>2. In Progress</h2>
+            <ul class="in-progress-tasks"></ul>
+            <input id="add-in-progress-task" class="task-input" placeholder="Add Task">
+            <button id="submit-add-in-progress" class="task-input">Add</button>    
+        </section>
+        
+        <section>
+            <h2>3. Done</h2>
+            <ul class="done-tasks"></ul>
+            <input id="add-done-task" class="task-input" placeholder="Add Task">
+            <button id="submit-add-done" class="task-input">Add</button>    
+        </section>
+    </div>
+    <div id="apiUsage">
+        <h3>Api Usage</h3>
+        <button id="saveToApi">Save</button>
+        <button id="loadFromApi">Load</button>
+        <img id="loading" class="loader" src="https://c.tenor.com/sOcqo6-1sXQAAAAM/loading-bar.gif">
+    </div>
 </body>
 </html>
