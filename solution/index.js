@@ -183,7 +183,7 @@ function changeSect(e)
         const mouseEvent= e;
         document.onkeydown= (event)=>{
             keysPressed[event.key]= true;
-            if(keysPressed["Control"] && event.key === "1")
+            if(keysPressed["Alt"] && event.key === "1")
             {
                 const ul = document.querySelector(".to-do-tasks");
                 const newLi= duplicateLi(mouseEvent)
@@ -193,7 +193,7 @@ function changeSect(e)
                 deleteData(key,newLi.textContent)
                 mouseEvent.target.remove();
             }
-            if(keysPressed["Control"] && event.key ==="2")
+            if(keysPressed["Alt"] && event.key ==="2")
             {
                 const ul = document.querySelector(".in-progress-tasks");
                 const newLi= duplicateLi(mouseEvent)
@@ -203,7 +203,7 @@ function changeSect(e)
                 deleteData(key,newLi.textContent)
                 mouseEvent.target.remove();
             }
-            if(keysPressed["Control"] && event.key ==="3")
+            if(keysPressed["Alt"] && event.key ==="3")
             {
                 const ul = document.querySelector(".done-tasks");
                 const newLi= duplicateLi(mouseEvent)
