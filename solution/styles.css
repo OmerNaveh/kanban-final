@@ -1,0 +1,82 @@
+body{
+    text-align: center;
+    background: rgb(34,195,163);
+    background: linear-gradient(90deg, rgba(34,195,163,1) 0%, rgba(245,253,45,1) 100%);
+}
+li{
+    list-style: none;
+    margin: 1rem 1rem;
+    display:flex;
+    border: thin solid lightcoral;
+    border-radius: 10%;
+    width: 10rem;
+    height: 35px;
+    justify-content: center;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    
+}
+ul{
+    /* display: flex;
+    flex-wrap: wrap; */
+    display: block;
+    margin: auto;
+    margin-left: -2rem;
+    
+}
+.overlay{
+    display: flex;
+    justify-content: space-evenly;
+}
+.task-input{
+    margin-top: 2rem;
+}
+.to-do-tasks .task{
+    background-color: tomato;
+}
+.in-progress-tasks .task{
+background-color: rgba(180, 180, 1, 0.63);
+}
+.done-tasks .task{
+    background-color: rgb(20, 192, 20);
+}
+input{
+    border-color: hotpink ;
+    border-radius: 10%;
+}
+button{
+    background-color: rgb(16, 134, 207);
+    border: none;
+    box-shadow: 2px 2px #1b1b1b;
+}
+button:hover{
+    background-color: rgb(26, 3, 129);
+}
+h2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-decoration-line: underline;
+}
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 2px 2px gray;
+}
+p{
+    font-size: 14px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#apiUsage{
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.loader{
+    display: none;
+    height: 100px;
+    width: 100px;
+    margin: auto;
+}
+.Cats{
+    height: 400px;
+    width: 400px;
+    margin: auto;
+}
