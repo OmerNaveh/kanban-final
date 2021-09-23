@@ -8,3 +8,7 @@ As part of a course I am taking - Cyber4s, I was given a final assigment to comp
 - The user will be able to add new tasks to each section, replace an existing task, move the tasks between sections and search existing tasks using a search bar.
 - All data should be saved in Local Data thus showing data even after page reload.
 - Bonus: Using an external API to save and load data.
+
+## GitHubPages:
+- Link: https://omernaveh.github.io/kanban-final/solution/
+![Pages Image](./pagesImg\precourse-final-pages.png?raw=true "Title") 
