@@ -28,8 +28,8 @@ const doneTasksList = '.done-tasks'
 
 const mockTasksText = 'second task input'
 
-const saveTasksToApiBtn = '#save-btn'
-const loadTasksFromApiBtn = '#load-btn'
+const saveTasksToApiBtn = '#saveToApi'
+const loadTasksFromApiBtn = '#loadFromApi'
 
 const loader = '.loader'
 
@@ -246,7 +246,7 @@ describe(projectName, () => {
     await page.$eval(searchInput, (e) => e.blur())
   })
 
-  test.skip('User should be able to save and load their tasks from the api and save it to the local storage', async () => {
+  test('User should be able to save and load their tasks from the api and save it to the local storage', async () => {
     const initialTasksCount = await countTasks()
     expect(initialTasksCount).toBe(3)
     await page.click(loadTasksFromApiBtn)
@@ -261,7 +261,7 @@ describe(projectName, () => {
     expect(tasksCountAfterRefresh).toBe(0)
   })
 
-  test.skip('User should be save tasks from the api', async () => {
+  test('User should be save tasks from the api', async () => {
     await addTasksAndTest()
     const initialTasksCount = await countTasks()
     expect(initialTasksCount).toBe(3)
